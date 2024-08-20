@@ -1,33 +1,58 @@
 import React from 'react'
 
-export default function index() {
-  return (
-   
-      <>
-      <div class="form-container">
-    <h1 class="form-title" id="form-title">Registration Form</h1>
-  
-    <form id="registrationForm">
-      <label for="firstName" class="form-label">First Name:</label>
-      <input type="text" id="firstName" name="firstName" class="form-input" required/>
-  
-      <label for="lastName" class="form-label">Last Name:</label>
-      <input type="text" id="lastName" name="lastName" class="form-input" required/>
-  
-      <label for="email" class="form-label">Email:</label>
-      <input type="email" id="email" name="email" class="form-input" required/>
-  
-      <label for="password" class="form-label">New Password:</label>
-      <input type="password" id="password" name="password" class="form-input" required/>
-  
-      <label for="confirmPassword" class="form-label">Confirm Password:</label>
-      <input type="password" id="confirmPassword" name="confirmPassword" class="form-input" required/>
-  
-      <button type="submit" class="form-button">Register</button>
-      <span class="form-switch-link" onclick="switchToLogin()">Already registered? Log in here</span>
-    </form>
-  </div>
-  
-      </>
-  )
-}
+export default ({ switchToLogin }) => {
+    const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
+ 
+    const handleSubmit = (event) => {
+      event.preventDefault();
+      if (password !== confirmPassword) {
+        alert('Passwords do not match.');
+      } else {
+        alert('Registration successful! A confirmation email has been sent.');
+      }
+    };
+ 
+    return (
+      <div className="form-container">
+        <h1 className="form-title">Registration Form</h1>
+ 
+        <form id="registrationForm" onSubmit={handleSubmit}>
+          <label htmlFor="firstName" className="form-label">First Name:</label>
+          <input type="text" id="firstName" name="firstName" className="form-input" required />
+ 
+          <label htmlFor="lastName" className="form-label">Last Name:</label>
+          <input type="text" id="lastName" name="lastName" className="form-input" required />
+ 
+          <label htmlFor="email" className="form-label">Email:</label>
+          <input type="email" id="email" name="email" className="form-input" required />
+ 
+          <label htmlFor="password" className="form-label">New Password:</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            className="form-input"
+            required
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+ 
+          <label htmlFor="confirmPassword" className="form-label">Confirm Password:</label>
+          <input
+            type="password"
+            id="confirmPassword"
+            name="confirmPassword"
+            className="form-input"
+            required
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+          />
+ 
+          <button type="submit" className="form-button">Register</button>
+          <span className="form-switch-link" onClick={switchToLogin}>Already registered? Log in here</span>
+        </form>
+      </div>
+    );
+  };
+ 
