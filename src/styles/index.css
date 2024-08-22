@@ -1,5 +1,5 @@
-/* Global Styles - Applies to all elements within the <body> */
-body {
+ /* Global Styles - Applies to all elements within the <body> */
+ body {
     font-family: Arial, sans-serif; /* Sets the font for the entire page */
     background-color: #eed9be; /* Light beige background for the entire page */
     color: #412e2e; /* Dark brown text color for the entire page */
@@ -256,5 +256,4 @@ button:hover {
         margin-bottom: 10px; /* Adds bottom margin between items on smaller screens */
     }
 }
-
 
