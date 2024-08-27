@@ -9,8 +9,11 @@ import Register from './components/Auth/Register';
 import Login from './components/Auth/Login';
 // import Chatbox from './components/Chatbox';
 import ContactUs from './components/ContactUs';
-//import Projects from './components/Projects';
+import Projects from './components/Projects';
 import About from './components/About';
+import Footer from './components/Footer';
+
+
 
 function App() {
   const [isRegistering, setIsRegistering] = useState(true);
@@ -33,9 +36,11 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="*" element={<Navigate to="/register" />} />
         <Route path="/contactus" element={<ContactUs to="/contuctus" />} />
-        {/* <Route path="/projects" element={<Projects to="/projects" />} /> */}
+        <Route path="/projects" element={<Projects to="/projects" />} />
         <Route path="/about" element={<About to="/about" />} />
+        
       </Routes>
+      <Footer/>
     </Router>
     </>
   );
